@@ -106,7 +106,7 @@ binary_sensor:
         then:
           - voice_assistant.stop:
 
-binary_sensor:
+binary_sensor2:
   - platform: gpio
     pin:
       number: GPIO21
