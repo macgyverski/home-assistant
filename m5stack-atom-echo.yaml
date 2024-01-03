@@ -86,7 +86,7 @@ voice_assistant:
 binary_sensor:
   - platform: gpio
     pin:
-      number: GPIO21
+      number: GPIO39
       inverted: true
     name: Button
     id: echo_button
