@@ -86,33 +86,10 @@ voice_assistant:
 binary_sensor:
   - platform: gpio
     pin:
-      number: GPIO39
+      number: GPIO21
       inverted: true
     name: Button
     id: echo_button
-    on_multi_click:
-      - timing:
-          - ON FOR AT MOST 350ms
-          - OFF FOR AT LEAST 10ms
-        then:
-          - media_player.toggle: media_out
-      - timing:
-          - ON FOR AT LEAST 350ms
-        then:
-          - voice_assistant.start:
-      - timing:
-          - ON FOR AT LEAST 350ms
-          - OFF FOR AT LEAST 10ms
-        then:
-          - voice_assistant.stop:
-
-binary_sensor2:
-  - platform: gpio
-    pin:
-      number: GPIO21
-      inverted: true
-    name: ExtButton
-    id: ext_button
     on_multi_click:
       - timing:
           - ON FOR AT MOST 350ms
