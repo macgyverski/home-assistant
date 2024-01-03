@@ -22,7 +22,7 @@ api:
 ota:
 
 dashboard_import:
-  package_import_url: github://macgyverski/home-assistant/m5stack-atom-echo.yaml@tester
+  package_import_url: github://macgyverski/home-assistant/m5stack-atom-echo.yaml@alex
 
 wifi:
   ap:
@@ -96,7 +96,7 @@ binary_sensor:
           - OFF FOR AT LEAST 10ms
         then:
           - media_player.toggle: media_out
-      - timing:
+      - timing: 
           - ON FOR AT LEAST 350ms
         then:
           - voice_assistant.start:
