@@ -134,7 +134,7 @@ media_player:
     id: media_out
     name: None
     dac_type: external
-    i2s_dout_pin: GPIO22
+    i2s_dout_pin: GPIO25
     mode: mono
 
 light:
