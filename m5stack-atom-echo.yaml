@@ -1,11 +1,6 @@
-substitutions:
-  name: "m5stack-atom-echo"
-  friendly_name: "M5Stack Atom Echo"
-  wifi_ap_password: ""
-
 esphome:
-  name: ${name}
-  friendly_name: ${friendly_name}
+  name: m5stack-atom-echo
+  friendly_name: M5Stack Atom Echo
   name_add_mac_suffix: true
   project:
     name: m5stack.atom-echo
@@ -22,11 +17,10 @@ api:
 ota:
 
 dashboard_import:
-  package_import_url: github://macgyverski/home-assistant/m5stack-atom-echo.yaml@alex
+  package_import_url: github://macgyverski/home-assistant/m5stack-atom-echo.yaml@theo
 
 wifi:
   ap:
-    password: "${wifi_ap_password}"
 
 captive_portal:
 
@@ -86,8 +80,8 @@ voice_assistant:
 binary_sensor:
   - platform: gpio
     pin:
-      number: GPIO21
-      inverted: false
+      number: GPIO39
+      inverted: true
     name: Button
     id: echo_button
     on_multi_click:
@@ -96,9 +90,14 @@ binary_sensor:
           - OFF FOR AT LEAST 10ms
         then:
           - media_player.toggle: media_out
-      - timing: 
+      - timing:
           - ON FOR AT LEAST 350ms
         then:
+          - if:
+              condition:
+                media_player.is_playing: media_out
+              then:
+                - media_player.stop: media_out
           - voice_assistant.start:
       - timing:
           - ON FOR AT LEAST 350ms
@@ -111,7 +110,7 @@ media_player:
     id: media_out
     name: None
     dac_type: external
-    i2s_dout_pin: GPIO25
+    i2s_dout_pin: GPIO22
     mode: mono
 
 light:
@@ -128,4 +127,26 @@ light:
       - pulse:
           transition_length: 250ms
           update_interval: 250ms
-#test theo
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO21
+      inverted: false
+    name: ExtButton
+    id: ext_button
+    on_multi_click:
+      - timing:
+          - ON FOR AT MOST 350ms
+          - OFF FOR AT LEAST 10ms
+        then:
+          - media_player.toggle: media_out
+      - timing: 
+          - ON FOR AT LEAST 350ms
+        then:
+          - voice_assistant.start:
+      - timing:
+          - ON FOR AT LEAST 350ms
+          - OFF FOR AT LEAST 10ms
+        then:
+          - voice_assistant.stop:
