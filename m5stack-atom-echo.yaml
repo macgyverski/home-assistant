@@ -127,26 +127,3 @@ light:
       - pulse:
           transition_length: 250ms
           update_interval: 250ms
-
-binary_sensor:
-  - platform: gpio
-    pin:
-      number: GPIO21
-      inverted: false
-    name: ExtButton
-    id: ext_button
-    on_multi_click:
-      - timing:
-          - ON FOR AT MOST 350ms
-          - OFF FOR AT LEAST 10ms
-        then:
-          - media_player.toggle: media_out
-      - timing: 
-          - ON FOR AT LEAST 350ms
-        then:
-          - voice_assistant.start:
-      - timing:
-          - ON FOR AT LEAST 350ms
-          - OFF FOR AT LEAST 10ms
-        then:
-          - voice_assistant.stop:
