@@ -87,7 +87,7 @@ binary_sensor:
   - platform: gpio
     pin:
       number: GPIO21
-      inverted: true
+      inverted: false
     name: Button
     id: echo_button
     on_multi_click:
