@@ -22,7 +22,7 @@ api:
 ota:
 
 dashboard_import:
-  package_import_url: github://macgyverski/home-assistant/raspiaudio-muse-proto.yaml@alex
+  package_import_url: github://macgyverski/home-assistant/raspiaudio-muse-proto.yaml@furby2
 
 wifi:
   ap:
