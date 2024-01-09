@@ -1,0 +1,34 @@
+substitutions:
+  name: "raspiaudio-muse-proto"
+  friendly_name: "RaspiAudio Muse Proto"
+  wifi_ap_password: ""
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+  name_add_mac_suffix: true
+  project:
+    name: raspiaudio.muse-proto
+    version: "1.0"
+  min_version: 2023.5.3
+
+esp32:
+  board: esp-wrover-kit
+  framework:
+    type: arduino
+
+logger:
+api:
+ota:
+
+dashboard_import:
+  package_import_url: github://macgyverski/home-assistant/raspiaudio-muse-proto.yaml@alex
+
+wifi:
+  ap:
+    password: "${wifi_ap_password}"
+
+captive_portal:
+
+improv_serial:
+
