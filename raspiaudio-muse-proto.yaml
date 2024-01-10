@@ -17,7 +17,7 @@ api:
 ota:
 
 dashboard_import:
-  package_import_url: github://macgyverski/home-assistant/raspiaudio-muse-proto.yaml@main
+  package_import_url: github://macgyverski/home-assistant/raspiaudio-muse-proto.yaml@dino
 
 wifi:
   ap:
