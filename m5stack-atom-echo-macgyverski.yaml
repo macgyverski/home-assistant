@@ -1,5 +1,5 @@
 substitutions:
-  name: m5stack-atom-echo2
+  name: m5stack-atom-echo
   friendly_name: M5Stack Atom Echo
   micro_wake_word_model: okay_nabu  # alexa, hey_jarvis, hey_mycroft are also supported
 
