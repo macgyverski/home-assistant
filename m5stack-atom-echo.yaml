@@ -81,10 +81,10 @@ media_player:
             - script.execute: reset_led
       - light.turn_on:
           id: led
-          blue: 100%
+          blue: 0%
           red: 0%
-          green: 0%
-          brightness: 100%
+          green: 100%
+          brightness: 50%
           effect: none
     on_idle:
       - script.execute: start_wake_word
@@ -99,24 +99,24 @@ voice_assistant:
   on_listening:
     - light.turn_on:
         id: led
-        blue: 100%
-        red: 0%
-        green: 0%
+        blue: 0%
+        red: 100%
+        green: 50%
         effect: "Slow Pulse"
   on_stt_vad_end:
     - light.turn_on:
         id: led
-        blue: 100%
-        red: 0%
-        green: 0%
+        blue: 0%
+        red: 100%
+        green: 50%
         effect: "Fast Pulse"
   on_tts_start:
     - light.turn_on:
         id: led
-        blue: 100%
-        red: 0%
-        green: 0%
-        brightness: 100%
+        blue: 0%
+        red: 100%
+        green: 50%
+        brightness: 50%
         effect: none
   on_end:
     - delay: 100ms
@@ -127,7 +127,7 @@ voice_assistant:
         red: 100%
         green: 0%
         blue: 0%
-        brightness: 100%
+        brightness: 50%
         effect: none
     - delay: 2s
     - script.execute: reset_led
@@ -146,10 +146,10 @@ voice_assistant:
     - switch.turn_on: timer_ringing
     - light.turn_on:
         id: led
-        red: 0%
-        green: 100%
+        red: 100%
+        green: 50%
         blue: 0%
-        brightness: 100%
+        brightness: 50%
         effect: "Fast Pulse"
     - wait_until:
         - switch.is_off: timer_ringing
@@ -202,14 +202,14 @@ light:
           name: "Slow Pulse"
           transition_length: 250ms
           update_interval: 250ms
-          min_brightness: 50%
-          max_brightness: 100%
+          min_brightness: 20%
+          max_brightness: 50%
       - pulse:
           name: "Fast Pulse"
           transition_length: 100ms
           update_interval: 100ms
-          min_brightness: 50%
-          max_brightness: 100%
+          min_brightness: 20%
+          max_brightness: 50%
 
 script:
   - id: reset_led
